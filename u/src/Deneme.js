@@ -164,24 +164,24 @@ const Deneme = ({ Obj }) => {
               </FormControl>
             </Grid>
           );
-        case "autocomplete":
-          return (
-            <Grid item {...item.style}>
-              <Autocomplete
-                id="combo-box-demo"
-                {...item?.ref?.map((item) => (
-                  <TextField
-                    onChange={(e) =>
-                      dispatch({
-                        type: "handleChange",
-                        payload: { key: item.label, value: e.target.value },
-                      })
-                    }
-                  />
-                ))}
-              />
-            </Grid>
-          );
+        // case "autocomplete":
+        //   return (
+        //     <Grid item {...item.style}>
+        //       <Autocomplete
+        //         id="combo-box-demo"
+        //         {...item?.ref?.map((item) => (
+        //           <TextField
+        //             onChange={(e) =>
+        //               dispatch({
+        //                 type: "handleChange",
+        //                 payload: { key: item.label, value: e.target.value },
+        //               })
+        //             }
+        //           />
+        //         ))}
+        //       />
+        //     </Grid>
+        //   );
         case "slider":
           return (
             <Grid item {...item.style}>

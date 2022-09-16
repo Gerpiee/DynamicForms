@@ -519,18 +519,18 @@ const Form = () => {
       },
       edge: "end",
     },
-    {
-      type: "autocomplete",
-      ref: [
-        { text: "The Shawshank Redemption", value: 1994 },
-        { text: "The Godfather", value: 1972 },
-        { text: "The Godfather: Part II", value: 1974 },
-        { text: "The Dark Knight", value: 2008 },
-        { text: "12 Angry Men", value: 1957 },
-        { text: "Schindler's List", value: 1993 },
-        { text: "Pulp Fiction", value: 1994 },
-      ],
-    },
+    // {
+    //   type: "autocomplete",
+    //   ref: [
+    //     { text: "The Shawshank Redemption", value: 1994 },
+    //     { text: "The Godfather", value: 1972 },
+    //     { text: "The Godfather: Part II", value: 1974 },
+    //     { text: "The Dark Knight", value: 2008 },
+    //     { text: "12 Angry Men", value: 1957 },
+    //     { text: "Schindler's List", value: 1993 },
+    //     { text: "Pulp Fiction", value: 1994 },
+    //   ],
+    // },
   ];
   return (
     <>
