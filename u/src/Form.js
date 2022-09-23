@@ -519,18 +519,189 @@ const Form = () => {
       },
       edge: "end",
     },
-    // {
-    //   type: "autocomplete",
-    //   ref: [
-    //     { text: "The Shawshank Redemption", value: 1994 },
-    //     { text: "The Godfather", value: 1972 },
-    //     { text: "The Godfather: Part II", value: 1974 },
-    //     { text: "The Dark Knight", value: 2008 },
-    //     { text: "12 Angry Men", value: 1957 },
-    //     { text: "Schindler's List", value: 1993 },
-    //     { text: "Pulp Fiction", value: 1994 },
-    //   ],
-    // },
+    {
+      type: "autocomplete",
+      text: "The Shawshank Redemption",
+
+      label: "ABCDEFG",
+      fullWidth: true,
+      width: "300",
+      ref: [
+        {
+          text: "The Shawshank Redemption",
+          value: 1994,
+          child: [{ text: "ceyhan", value: 122 }],
+        },
+        { text: "The Godfather", value: 1972 },
+        { text: "The Godfather: Part II", value: 1974 },
+        { text: "The Dark Knight", value: 2008 },
+        { text: "12 Angry Men", value: 1957 },
+        { text: "Schindler's List", value: 1993 },
+        { text: "Pulp Fiction", value: 1994 },
+      ],
+      keys: ["text", "value"],
+    },
+    {
+      type: "autocomplete",
+      text: "The Shawshank Redemption",
+
+      label: "Film",
+      fullWidth: true,
+      width: "300",
+      disableListWrap: false,
+      blurOnSelect: true,
+      multiple: true,
+      ref: [
+        { text: "The Shawshank Redemption", value: 1994 },
+        { text: "The Godfather", value: 1972 },
+        { text: "The Godfather: Part II", value: 1974 },
+        { text: "The Dark Knight", value: 2008 },
+        { text: "12 Angry Men", value: 1957 },
+        { text: "Schindler's List", value: 1993 },
+        { text: "Pulp Fiction", value: 1994 },
+      ],
+      keys: ["text", "value"],
+    },
+    {
+      type: "autocomplete",
+      text: "The Shawshank Redemption",
+      size: "small",
+      label: "Film",
+      fullWidth: true,
+
+      width: "300",
+      disableCloseOnSelect: false,
+      ref: [
+        { text: "The Shawshank Redemption", value: 1994 },
+        { text: "The Godfather", value: 1972 },
+        { text: "The Godfather: Part II", value: 1974 },
+        { text: "The Dark Knight", value: 2008 },
+        { text: "12 Angry Men", value: 1957 },
+        { text: "Schindler's List", value: 1993 },
+        { text: "Pulp Fiction", value: 1994 },
+      ],
+      keys: ["text", "value"],
+    },
+    {
+      type: "autocomplete",
+      text: "The Shawshank Redemption",
+
+      label: "Days",
+      fullWidth: true,
+      width: "300",
+      disableCloseOnSelect: false,
+      disabledItemsFocusable: true,
+      blurOnSelect: true,
+      multiple: true,
+      ref: [
+        { text: "The Shawshank Redemption", value: 1994 },
+        { text: "The Godfather", value: 1972 },
+        { text: "The Godfather: Part II", value: 1974 },
+        { text: "The Dark Knight", value: 2008 },
+        { text: "12 Angry Men", value: 1957 },
+        { text: "Schindler's List", value: 1993 },
+        { text: "Pulp Fiction", value: 1994 },
+      ],
+      keys: ["text", "value"],
+    },
+
+    {
+      type: "country",
+      xs: "12",
+      sm: "6",
+      label: "Dr.Adı Soyadı",
+      inputType: "password",
+      name: "dradisoyadi",
+    },
+
+    {
+      type: "country",
+      label: "Ülke",
+      fullWidth: true,
+      variant: "standard",
+
+      key: 100,
+      ref: [{ text: "Germany", value: 201 }],
+      reference: [
+        { label: "Şehir" },
+        {
+          text: "Stuttgart",
+          value: 106,
+        },
+        {
+          text: "Heidelberg",
+          value: 107,
+        },
+        {
+          text: "Mannheim",
+          value: 108,
+        },
+        {
+          text: "Karlsruhe",
+          value: 109,
+        },
+        {
+          text: "Ulm",
+          value: 110,
+        },
+      ],
+
+      style: {
+        xs: "12",
+        sm: "4",
+        md: "",
+        lg: "",
+        color: "error",
+        size: "large",
+      },
+    },
+    {
+      type: "country",
+      label: "Ülke",
+      fullWidth: true,
+      variant: "standard",
+
+      key: 100,
+      ref: [
+        {
+          text: "istanbul",
+          value: 203,
+          provinces: [{ text: "kadıköy", value: 12 }],
+        },
+      ],
+      reference: [
+        { label: "Şehir" },
+        {
+          text: "Amsterdam",
+          value: 111,
+        },
+        {
+          text: "Lahey",
+          value: 112,
+        },
+        {
+          text: "Rotterdam",
+          value: 113,
+        },
+        {
+          text: "Utrecht",
+          value: 114,
+        },
+        {
+          text: "Leiden",
+          value: 115,
+        },
+      ],
+
+      style: {
+        xs: "12",
+        sm: "4",
+        md: "",
+        lg: "",
+        color: "error",
+        size: "large",
+      },
+    },
   ];
   return (
     <>

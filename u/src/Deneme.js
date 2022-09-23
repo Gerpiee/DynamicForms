@@ -9,7 +9,6 @@ import {
   InputLabel,
   MenuItem,
   Radio,
-  RadioGroup,
   Rating,
   Select,
   Slider,
@@ -18,26 +17,37 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useReducer } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import VolumeDown from "@mui/icons-material/VolumeDown";
 import VolumeUp from "@mui/icons-material/VolumeUp";
+import SelectInput from "@mui/material/Select/SelectInput";
 
 function reducer(state, action) {
   switch (action.type) {
     case "onChange":
-      return { ...state, [action.payload?.key]: action.payload?.value };
-    case "handleChange":
-      return { ...state, [action.payload?.key]: action.payload?.value };
-    case "onChangeAsync":
       return { ...state, [action.payload?.key]: action.payload?.value };
 
     default:
       return state;
   }
 }
+
 const Deneme = ({ Obj }) => {
   const [state, dispatch] = useReducer(reducer);
+  const [con, setCon] = useState(false);
+  const [trye, setTrye] = useState("");
+  const handleChange = (event) => {
+    setTrye(event.target.value);
+  };
   console.log(state);
+  useEffect(() => {
+    fetch("https://632c094b1aabd83739910892.mockapi.io/country/country")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+  }, []);
   function ModalPosition(array) {
     return array?.map((item) => {
       switch (item.type) {
@@ -151,7 +161,7 @@ const Deneme = ({ Obj }) => {
                 <Select
                   onChange={(e) =>
                     dispatch({
-                      type: "handleChange",
+                      type: "onChange",
                       payload: { key: item.label, value: e.target.value },
                     })
                   }
@@ -164,24 +174,30 @@ const Deneme = ({ Obj }) => {
               </FormControl>
             </Grid>
           );
-        // case "autocomplete":
-        //   return (
-        //     <Grid item {...item.style}>
-        //       <Autocomplete
-        //         id="combo-box-demo"
-        //         {...item?.ref?.map((item) => (
-        //           <TextField
-        //             onChange={(e) =>
-        //               dispatch({
-        //                 type: "handleChange",
-        //                 payload: { key: item.label, value: e.target.value },
-        //               })
-        //             }
-        //           />
-        //         ))}
-        //       />
-        //     </Grid>
-        //   );
+        case "autocomplete":
+          return (
+            <Grid item {...item.style}>
+              <Autocomplete
+                {...item}
+                getOptionLabel={(option) =>
+                  item.keys.map((itm) => `${option[itm]}  `)
+                }
+                getOptionSelected={(option, value) =>
+                  option.text !== value.text
+                }
+                onChange={(e, v) =>
+                  dispatch({
+                    type: "onChange",
+                    payload: { key: item.label, value: v },
+                  })
+                }
+                options={item.ref}
+                sx={{ width: 300 }}
+                id="combo-box-demo"
+                renderInput={(params) => <TextField {...params} {...item} />}
+              />
+            </Grid>
+          );
         case "slider":
           return (
             <Grid item {...item.style}>
@@ -220,6 +236,24 @@ const Deneme = ({ Obj }) => {
               />
             </Grid>
           );
+
+        // case "country":
+        //   return (
+        //     <Grid item sm={item.sm} xs={item.xs}>
+        //       <InputLabel>{item.label}</InputLabel>
+        //       <SelectInput
+        //         setStringValue={(e) => {
+        //           dispatch({
+        //             type: "onChange",
+        //             payload: { key: item.label, value: e.target.value },
+        //           });
+        //         }}
+        //         {...item}
+        //         state={state}
+        //       />
+        //     </Grid>
+        //   );
+
         default:
           return;
       }
